@@ -2,8 +2,8 @@ from django import forms
 from django.core import validators
 
 class UserRegisterationForm(forms.Form):
-    GENDER=[('male','MALE'),('female','FEMALE',validators=[validators.MaxLengthValidator(20),validators.MinLengthValidator(5)])]
-    firstName=forms.CharField( required=False)
+    GENDER=[('male','MALE'),('female','FEMALE')]
+    firstName=forms.CharField( required=False,validators=[validators.MaxLengthValidator(20),validators.MinLengthValidator(5)])
     lastName=forms.CharField()
     email=forms.EmailField()
     gender = forms.CharField(widget=forms.Select(choices=GENDER))
